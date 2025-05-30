@@ -1,0 +1,13 @@
+body {
+  background-color: white;
+  color: black;
+  font-family: Arial;
+  padding: 10px;
+}
+.shayari-card {
+  background: #f9f9f9;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
