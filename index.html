@@ -1,4 +1,28 @@
-<div style="text-align: center;">
+<<script>
+  function copyText(text) {
+    navigator.clipboard.writeText(text);
+    alert("Shayari copied!");
+  }
+  function shareWhatsApp(text) {
+    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(text));
+  }
+</script>div style="margin: 20px;">
+  <h2>Love Shayari</h2>
+  <div class="shayari-card">
+    <p>Tere bina zindagi adhoori si lagti hai...</p>
+  </div>
+  <div class="shayari-card">
+    <p>Tujhse milke dil ka alam badal gaya...</p>
+  </div>
+  <h2>Sad Shayari</h2>
+  <div class="shayari-card">
+    <p>Dard bhari raaton mein bas yaad teri aati hai...</p>
+  </div>
+</div><div class="shayari-card">
+  <p>Tere bina zindagi adhoori si lagti hai...</p>
+  <button onclick="copyText('Tere bina zindagi adhoori si lagti hai...')">Copy</button>
+  <button onclick="shareWhatsApp('Tere bina zindagi adhoori si lagti hai...')">Share on WhatsApp</button>
+</div><div style="text-align: center;">
   <img src="logo.png" alt="Shayariwale" style="width: 120px;">
 </div><link rel="stylesheet" href="style.css">
 <!DOCTYPE html>
