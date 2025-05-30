@@ -1,41 +1,384 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hindi Shayari | Shayariwale</title>
-  <meta name="description" content="Best Hindi love, sad, and funny shayaris at Shayariwale.">
-  <meta name="keywords" content="Hindi shayari, love shayari, sad shayari, Shayariwale">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="हिंदी शायरी का खजाना | रोमांटिक, दर्द भरी, जिंदगी और मोटिवेशनल शायरी">
+    <meta property="og:title" content="शायरी वाला | Hindi Shayari Collection">
+    <meta property="og:description" content="हिंदी शायरी का खजाना | रोमांटिक, दर्द भरी, जिंदगी और मोटिवेशनल शायरी">
+    <meta property="og:url" content="https://vishwajit-tech.github.io/Shayariwale/">
+    <meta property="og:type" content="website">
+    <title>शायरी वाला | Hindi Shayari Collection</title>
+    <style>
+        :root {
+            --primary-color: #6a1b9a;
+            --secondary-color: #ff9800;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+        }
+        
+        [data-theme="dark"] {
+            --primary-color: #9c27b0;
+            --secondary-color: #ffb74d;
+            --text-color: #f0f0f0;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            z-index: 100;
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            font-size: 1rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+        
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+        }
+        
+        .shayari-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .shayari-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .shayari-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .shayari-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+        
+        .share-btn {
+            background: transparent;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid var(--primary-color);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .shayari-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div style="text-align: center; padding: 10px;">
-      <img src="logo.png" alt="Shayariwale Logo" style="width: 120px;">
+    <button class="theme-toggle" id="themeToggle">🌓</button>
+    
+    <div class="container">
+        <header>
+            <h1>शायरी वाला</h1>
+            <p class="subtitle">हिंदी शायरी का खजाना</p>
+        </header>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="शायरी खोजें...">
+            <button id="searchBtn">🔍</button>
+        </div>
+        
+        <div class="category-tabs">
+            <button class="tab-btn active" data-category="all">सभी</button>
+            <button class="tab-btn" data-category="prem">प्रेम</button>
+            <button class="tab-btn" data-category="dard">दर्द</button>
+            <button class="tab-btn" data-category="jindagi">जिंदगी</button>
+            <button class="tab-btn" data-category="mohabbat">मोहब्बत</button>
+            <button class="tab-btn" data-category="motivational">प्रेरणा</button>
+        </div>
+        
+        <div class="shayari-container" id="shayariContainer">
+            <!-- Shayari cards will be inserted here by JavaScript -->
+        </div>
+        
+        <footer>
+            <p>© 2023 शायरी वाला | सभी अधिकार सुरक्षित</p>
+            <p>नई शायरी जोड़ने के लिए <a href="https://github.com/Vishwajit-tech/Shayariwale" style="color: var(--primary-color);">GitHub रिपोजिटरी</a> पर कॉन्ट्रिब्यूट करें</p>
+        </footer>
     </div>
-  </header>
-  <div class="container">
-    <h2>Love Shayari</h2>
-    <div class="shayari-card">
-      <p>Tere bina zindagi adhoori si lagti hai...</p>
-      <button onclick="copyText('Tere bina zindagi adhoori si lagti hai...')">Copy</button>
-      <button onclick="shareWhatsApp('Tere bina zindagi adhoori si lagti hai...')">Share on WhatsApp</button>
-    </div>
-    <div class="shayari-card">
-      <p>Tujhse milke dil ka alam badal gaya...</p>
-      <button onclick="copyText('Tujhse milke dil ka alam badal gaya...')">Copy</button>
-      <button onclick="shareWhatsApp('Tujhse milke dil ka alam badal gaya...')">Share on WhatsApp</button>
-    </div>
-    <h2>Sad Shayari</h2>
-    <div class="shayari-card">
-      <p>Dard bhari raaton mein bas yaad teri aati hai...</p>
-      <button onclick="copyText('Dard bhari raaton mein bas yaad teri aati hai...')">Copy</button>
-      <button onclick="shareWhatsApp('Dard bhari raaton mein bas yaad teri aati hai...')">Share on WhatsApp</button>
-    </div>
-  </div>
-  <div class="container text-center">
-    <a href="https://chat.whatsapp.com/YOUR_LINK" class="whatsapp-btn">Join WhatsApp Group</a>
-  </div>
-  <script src="script.js"></script>
+
+    <script>
+        // Sample shayari data
+        const shayariData = [
+            {
+                text: "तुम्हारी यादों का साया है, दिल पे जिसका असर है, जिंदगी अब तो बस तुम्हारे बिना अधूरी सी लगती है।",
+                category: "prem",
+                author: "अनजान"
+            },
+            {
+                text: "दर्द इतना गहरा है की दवा भी असर नहीं करती, वो जुदाई का घाव है जो हर दिन ताजा हो जाता है।",
+                category: "dard",
+                author: "अनजान"
+            },
+            {
+                text: "जिंदगी एक सफर है सुहाना, यहाँ कल भी था, आज भी है, कल भी रहेगा, बस हम नहीं होंगे।",
+                category: "jindagi",
+                author: "अनजान"
+            },
+            {
+                text: "मोहब्बत वो नगमा है जिसमें सुर भी हैं और ताल भी, बस गुनगुनाने वाला कोई चाहिए।",
+                category: "mohabbat",
+                author: "अनजान"
+            },
+            {
+                text: "हौसले बुलंद रखो, मंजिलें खुद ब खुद मिल जाएंगी, क्योंकि जो सपने देखता है, वो पूरे भी होते हैं।",
+                category: "motivational",
+                author: "अनजान"
+            },
+            {
+                text: "तुम्हारी मुस्कान की चाहत में हमने अपने सपने बेच दिए, अब तो बस तुम्हारे होकर ही जीना है।",
+                category: "prem",
+                author: "अनजान"
+            },
+            {
+                text: "दर्द का एहसास तो हर किसी को होता है, पर दर्द की गहराई सिर्फ वही समझता है जिसके दिल पर चोट लगी हो।",
+                category: "dard",
+                author: "अनजान"
+            },
+            {
+                text: "जिंदगी के इस सफर में कभी हँसना, कभी रोना, पर हार न मानना, क्योंकि यही तो जिंदगी है।",
+                category: "jindagi",
+                author: "अनजान"
+            }
+        ];
+
+        // DOM elements
+        const shayariContainer = document.getElementById('shayariContainer');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Current filter state
+        let currentCategory = 'all';
+        let currentSearch = '';
+
+        // Initialize the page
+        function init() {
+            renderShayari();
+            setupEventListeners();
+            checkThemePreference();
+        }
+
+        // Render shayari based on current filters
+        function renderShayari() {
+            shayariContainer.innerHTML = '';
+            
+            const filteredShayari = shayariData.filter(shayari => {
+                const matchesCategory = currentCategory === 'all' || shayari.category === currentCategory;
+                const matchesSearch = shayari.text.toLowerCase().includes(currentSearch.toLowerCase()) || 
+                                    shayari.author.toLowerCase().includes(currentSearch.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+            
+            if (filteredShayari.length === 0) {
+                shayariContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">कोई शायरी नहीं मिली</p>';
+                return;
+            }
+            
+            filteredShayari.forEach(shayari => {
+                const card = document.createElement('div');
+                card.className = 'shayari-card';
+                card.dataset.category = shayari.category;
+                
+                card.innerHTML = `
+                    <div class="shayari-text">${shayari.text}</div>
+                    <div class="shayari-meta">
+                        <span>— ${shayari.author}</span>
+                        <button class="share-btn" onclick="shareShayari('${encodeURIComponent(shayari.text)} - ${shayari.author}')">
+                            <span>शेयर</span> ↗
+                        </button>
+                    </div>
+                `;
+                
+                shayariContainer.appendChild(card);
+            });
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Tab buttons
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentCategory = btn.dataset.category;
+                    renderShayari();
+                });
+            });
+            
+            // Search functionality
+            searchBtn.addEventListener('click', () => {
+                currentSearch = searchInput.value.trim();
+                renderShayari();
+            });
+            
+            searchInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    currentSearch = searchInput.value.trim();
+                    renderShayari();
+                }
+            });
+            
+            // Theme toggle
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+
+        // Share functionality
+        window.shareShayari = function(text) {
+            const shareUrl = `https://wa.me/?text=${encodeURIComponent(text + '\n\n👉 https://vishwajit-tech.github.io/Shayariwale/')}`;
+            window.open(shareUrl, '_blank');
+        }
+
+        // Theme management
+        function checkThemePreference() {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('theme');
+            
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (prefersDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Initialize the app
+        init();
+    </script>
 </body>
 </html>
