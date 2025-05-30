@@ -1,93 +1,41 @@
-<<script>
-  function copyText(text) {
-    navigator.clipboard.writeText(text);
-    alert("Shayari copied!");
-  }
-  function shareWhatsApp(text) {
-    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(text));
-  }
-</script>div style="margin: 20px;">
-  <h2>Love Shayari</h2>
-  <div class="shayari-card">
-    <p>Tere bina zindagi adhoori si lagti hai...</p>
-  </div>
-  <div class="shayari-card">
-    <p>Tujhse milke dil ka alam badal gaya...</p>
-  </div>
-  <h2>Sad Shayari</h2>
-  <div class="shayari-card">
-    <p>Dard bhari raaton mein bas yaad teri aati hai...</p>
-  </div>
-</div><div class="shayari-card">
-  <p>Tere bina zindagi adhoori si lagti hai...</p>
-  <button onclick="copyText('Tere bina zindagi adhoori si lagti hai...')">Copy</button>
-  <button onclick="shareWhatsApp('Tere bina zindagi adhoori si lagti hai...')">Share on WhatsApp</button>
-</div><div style="text-align: center;">
-  <img src="logo.png" alt="Shayariwale" style="width: 120px;">
-</div><link rel="stylesheet" href="style.css">
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ShayariWale - दिल को छू जाने वाली शायरी का संग्रह। Love, Dard, Attitude और और भी बहुत कुछ।" />
-  <meta name="keywords" content="shayari, hindi shayari, love shayari, dard bhari shayari, breakup shayari, attitude shayari" />
-  <meta name="author" content="ShayariWale" />
-  <title>ShayariWale - दिल छू लेने वाली शायरी</title>
-  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hindi Shayari | Shayariwale</title>
+  <meta name="description" content="Best Hindi love, sad, and funny shayaris at Shayariwale.">
+  <meta name="keywords" content="Hindi shayari, love shayari, sad shayari, Shayariwale">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>ShayariWale - जज़्बातों को अल्फाज़ देते हैं</header>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="love-shayari.html">Love</a>
-    <a href="breakup-shayari.html">Breakup</a>
-    <a href="dard-shayari.html">Dard</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <div class="hero">
-    दिल को छू जाने वाली शायरियों का खज़ाना — हर एहसास के लिए एक अल्फ़ाज़।
+  <header>
+    <div style="text-align: center; padding: 10px;">
+      <img src="logo.png" alt="Shayariwale Logo" style="width: 120px;">
+    </div>
+  </header>
+  <div class="container">
+    <h2>Love Shayari</h2>
+    <div class="shayari-card">
+      <p>Tere bina zindagi adhoori si lagti hai...</p>
+      <button onclick="copyText('Tere bina zindagi adhoori si lagti hai...')">Copy</button>
+      <button onclick="shareWhatsApp('Tere bina zindagi adhoori si lagti hai...')">Share on WhatsApp</button>
+    </div>
+    <div class="shayari-card">
+      <p>Tujhse milke dil ka alam badal gaya...</p>
+      <button onclick="copyText('Tujhse milke dil ka alam badal gaya...')">Copy</button>
+      <button onclick="shareWhatsApp('Tujhse milke dil ka alam badal gaya...')">Share on WhatsApp</button>
+    </div>
+    <h2>Sad Shayari</h2>
+    <div class="shayari-card">
+      <p>Dard bhari raaton mein bas yaad teri aati hai...</p>
+      <button onclick="copyText('Dard bhari raaton mein bas yaad teri aati hai...')">Copy</button>
+      <button onclick="shareWhatsApp('Dard bhari raaton mein bas yaad teri aati hai...')">Share on WhatsApp</button>
+    </div>
   </div>
-
-  <section class="categories">
-    <div class="category">
-      <h2>❤️ Love Shayari</h2>
-      <p>प्यार भरी शायरियों का खज़ाना...</p>
-      <a href="love-shayari.html">Read More</a>
-    </div>
-    <div class="category">
-      <h2>💔 Breakup Shayari</h2>
-      <p>जुदाई और तन्हाई की शायरियाँ...</p>
-      <a href="breakup-shayari.html">Read More</a>
-    </div>
-    <div class="category">
-      <h2>😢 Dard Bhari Shayari</h2>
-      <p>दिल के दर्द को बयान करती शायरियाँ...</p>
-      <a href="dard-shayari.html">Read More</a>
-    </div>
-    <div class="category">
-      <h2>😎 Attitude Shayari</h2>
-      <p>Self-respect और swag की शायरियाँ...</p>
-      <a href="attitude-shayari.html">Read More</a>
-    </div>
-    <div class="category">
-      <h2>😂 Funny Shayari</h2>
-      <p>हंसी से लबों को महकाओ...</p>
-      <a href="funny-shayari.html">Read More</a>
-    </div>
-    <div class="category">
-      <h2>🌙 Good Night Shayari</h2>
-      <p>मीठे ख्वाबों से भरी शायरियाँ...</p>
-      <a href="good-night-shayari.html">Read More</a>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 ShayariWale | Designed with ❤️ by Vishwajit
-  </footer>
+  <div class="container text-center">
+    <a href="https://chat.whatsapp.com/YOUR_LINK" class="whatsapp-btn">Join WhatsApp Group</a>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
