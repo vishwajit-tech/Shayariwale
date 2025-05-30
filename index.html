@@ -1,384 +1,494 @@
-<!DOCTYPE html>
+
+        <!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="हिंदी शायरी का खजाना | रोमांटिक, दर्द भरी, जिंदगी और मोटिवेशनल शायरी">
-    <meta property="og:title" content="शायरी वाला | Hindi Shayari Collection">
-    <meta property="og:description" content="हिंदी शायरी का खजाना | रोमांटिक, दर्द भरी, जिंदगी और मोटिवेशनल शायरी">
-    <meta property="og:url" content="https://vishwajit-tech.github.io/Shayariwale/">
-    <meta property="og:type" content="website">
-    <title>शायरी वाला | Hindi Shayari Collection</title>
+    <title>शायरी वाला - फेसबुक स्टाइल</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #6a1b9a;
-            --secondary-color: #ff9800;
-            --text-color: #333;
-            --bg-color: #f9f9f9;
-            --card-bg: #ffffff;
-        }
-        
-        [data-theme="dark"] {
-            --primary-color: #9c27b0;
-            --secondary-color: #ffb74d;
-            --text-color: #f0f0f0;
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1877f2;
+            --bg-color: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-primary: #050505;
+            --text-secondary: #65676b;
+            --border: #dddfe2;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            color: var(--text-primary);
             padding: 20px;
+            min-height: 100vh;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
         }
         
+        /* Header Styles */
         header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px 0;
-            border-bottom: 2px solid var(--primary-color);
-        }
-        
-        h1 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-        }
-        
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            z-index: 100;
-        }
-        
-        .category-tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        
-        .tab-btn {
-            padding: 10px 20px;
             background-color: var(--card-bg);
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            border-radius: 30px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            grid-column: 1/-1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        /* Left Sidebar */
+        .sidebar {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        
+        .sidebar h2 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .category {
+            padding: 10px;
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
             transition: all 0.3s;
         }
         
-        .tab-btn.active, .tab-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
+        .category:hover {
+            background-color: var(--bg-color);
         }
         
-        .search-box {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto 30px;
-            position: relative;
+        .category i {
+            width: 30px;
+            text-align: center;
+            font-size: 1.2rem;
         }
         
-        .search-box input {
-            width: 100%;
-            padding: 12px 20px;
-            border: 2px solid var(--primary-color);
-            border-radius: 30px;
-            font-size: 1rem;
+        .category.prem i { color: #e91e63; }
+        .category.dard i { color: #2196f3; }
+        .category.jindagi i { color: #4caf50; }
+        .category.mohabbat i { color: #f44336; }
+        .category.motivational i { color: #ff9800; }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .create-post {
             background-color: var(--card-bg);
-            color: var(--text-color);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
-        .search-box button {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            background: var(--primary-color);
+        .post-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .post-form textarea {
+            width: 100%;
+            height: 100px;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            resize: vertical;
+            font-size: 1.1rem;
+        }
+        
+        .post-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .post-form button {
+            background-color: var(--primary);
             color: white;
             border: none;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.1rem;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
-        .shayari-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        .shayari-list {
+            display: flex;
+            flex-direction: column;
             gap: 20px;
-            margin-bottom: 40px;
         }
         
         .shayari-card {
             background-color: var(--card-bg);
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
-        .shayari-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .shayari-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 15px;
-            font-style: italic;
         }
         
-        .shayari-meta {
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .shayari-info h3 {
+            font-size: 1.2rem;
+        }
+        
+        .shayari-info .timestamp {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .shayari-content {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            padding: 0 10px;
+        }
+        
+        .shayari-actions {
+            display: flex;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 0;
+            margin-bottom: 10px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+        
+        .action-btn:hover {
+            background-color: var(--bg-color);
+        }
+        
+        .action-btn.like:hover { color: #1877f2; }
+        .action-btn.comment:hover { color: #45bd62; }
+        .action-btn.share:hover { color: #e91e63; }
+        
+        /* Right Sidebar */
+        .right-sidebar {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        
+        .popular-shayaris h2 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .popular-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .popular-item:last-child {
+            border-bottom: none;
+        }
+        
+        .popular-content {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        
+        .popular-meta {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            font-size: 0.9rem;
-            color: var(--secondary-color);
-        }
-        
-        .share-btn {
-            background: transparent;
-            border: none;
-            color: var(--primary-color);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            border-top: 1px solid var(--primary-color);
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
         
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .shayari-container {
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .container {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <button class="theme-toggle" id="themeToggle">🌓</button>
-    
     <div class="container">
         <header>
-            <h1>शायरी वाला</h1>
-            <p class="subtitle">हिंदी शायरी का खजाना</p>
+            <div class="logo">
+                <i class="fas fa-pen-nib"></i>
+                <h1>शायरी वाला</h1>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="शायरी खोजें...">
+            </div>
         </header>
         
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="शायरी खोजें...">
-            <button id="searchBtn">🔍</button>
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <h2>श्रेणियाँ</h2>
+            <div class="category prem">
+                <i class="fas fa-heart"></i>
+                <span>प्रेम शायरी</span>
+            </div>
+            <div class="category dard">
+                <i class="fas fa-sad-tear"></i>
+                <span>दर्द भरी शायरी</span>
+            </div>
+            <div class="category jindagi">
+                <i class="fas fa-leaf"></i>
+                <span>जिंदगी की शायरी</span>
+            </div>
+            <div class="category mohabbat">
+                <i class="fas fa-star"></i>
+                <span>मोहब्बत शायरी</span>
+            </div>
+            <div class="category motivational">
+                <i class="fas fa-fire"></i>
+                <span>प्रेरणादायक शायरी</span>
+            </div>
         </div>
         
-        <div class="category-tabs">
-            <button class="tab-btn active" data-category="all">सभी</button>
-            <button class="tab-btn" data-category="prem">प्रेम</button>
-            <button class="tab-btn" data-category="dard">दर्द</button>
-            <button class="tab-btn" data-category="jindagi">जिंदगी</button>
-            <button class="tab-btn" data-category="mohabbat">मोहब्बत</button>
-            <button class="tab-btn" data-category="motivational">प्रेरणा</button>
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="create-post">
+                <form class="post-form" id="postForm">
+                    <textarea placeholder="आज आप क्या सोच रहे हैं? अपनी शायरी यहाँ लिखें..." required></textarea>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                        शायरी पोस्ट करें
+                    </button>
+                </form>
+            </div>
+            
+            <div class="shayari-list" id="shayariList">
+                <!-- Shayari posts will be added here dynamically -->
+            </div>
         </div>
         
-        <div class="shayari-container" id="shayariContainer">
-            <!-- Shayari cards will be inserted here by JavaScript -->
+        <!-- Right Sidebar -->
+        <div class="right-sidebar">
+            <div class="popular-shayaris">
+                <h2>लोकप्रिय शायरियाँ</h2>
+                <div class="popular-item">
+                    <div class="popular-content">"जिंदगी एक सफर है सुहाना, यहाँ कल भी था, आज भी है, कल भी रहेगा, बस हम नहीं होंगे।"</div>
+                    <div class="popular-meta">
+                        <span>अनजान</span>
+                        <span>❤️ 128 लाइक्स</span>
+                    </div>
+                </div>
+                <div class="popular-item">
+                    <div class="popular-content">"मोहब्बत वो नगमा है जिसमें सुर भी हैं और ताल भी, बस गुनगुनाने वाला कोई चाहिए।"</div>
+                    <div class="popular-meta">
+                        <span>अनजान</span>
+                        <span>❤️ 98 लाइक्स</span>
+                    </div>
+                </div>
+                <div class="popular-item">
+                    <div class="popular-content">"हौसले बुलंद रखो, मंजिलें खुद ब खुद मिल जाएंगी, क्योंकि जो सपने देखता है, वो पूरे भी होते हैं।"</div>
+                    <div class="popular-meta">
+                        <span>अनजान</span>
+                        <span>❤️ 145 लाइक्स</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <footer>
-            <p>© 2023 शायरी वाला | सभी अधिकार सुरक्षित</p>
-            <p>नई शायरी जोड़ने के लिए <a href="https://github.com/Vishwajit-tech/Shayariwale" style="color: var(--primary-color);">GitHub रिपोजिटरी</a> पर कॉन्ट्रिब्यूट करें</p>
-        </footer>
     </div>
 
     <script>
-        // Sample shayari data
-        const shayariData = [
+        // Sample data for initial posts
+        const initialShayaris = [
             {
-                text: "तुम्हारी यादों का साया है, दिल पे जिसका असर है, जिंदगी अब तो बस तुम्हारे बिना अधूरी सी लगती है।",
-                category: "prem",
-                author: "अनजान"
+                id: 1,
+                name: "राहुल शर्मा",
+                content: "तुम्हारी यादों का साया है, दिल पे जिसका असर है, जिंदगी अब तो बस तुम्हारे बिना अधूरी सी लगती है।",
+                timestamp: "2 घंटे पहले",
+                likes: 42,
+                comments: 5
             },
             {
-                text: "दर्द इतना गहरा है की दवा भी असर नहीं करती, वो जुदाई का घाव है जो हर दिन ताजा हो जाता है।",
-                category: "dard",
-                author: "अनजान"
+                id: 2,
+                name: "प्रिया सिंह",
+                content: "दर्द इतना गहरा है की दवा भी असर नहीं करती, वो जुदाई का घाव है जो हर दिन ताजा हो जाता है।",
+                timestamp: "5 घंटे पहले",
+                likes: 78,
+                comments: 12
             },
             {
-                text: "जिंदगी एक सफर है सुहाना, यहाँ कल भी था, आज भी है, कल भी रहेगा, बस हम नहीं होंगे।",
-                category: "jindagi",
-                author: "अनजान"
-            },
-            {
-                text: "मोहब्बत वो नगमा है जिसमें सुर भी हैं और ताल भी, बस गुनगुनाने वाला कोई चाहिए।",
-                category: "mohabbat",
-                author: "अनजान"
-            },
-            {
-                text: "हौसले बुलंद रखो, मंजिलें खुद ब खुद मिल जाएंगी, क्योंकि जो सपने देखता है, वो पूरे भी होते हैं।",
-                category: "motivational",
-                author: "अनजान"
-            },
-            {
-                text: "तुम्हारी मुस्कान की चाहत में हमने अपने सपने बेच दिए, अब तो बस तुम्हारे होकर ही जीना है।",
-                category: "prem",
-                author: "अनजान"
-            },
-            {
-                text: "दर्द का एहसास तो हर किसी को होता है, पर दर्द की गहराई सिर्फ वही समझता है जिसके दिल पर चोट लगी हो।",
-                category: "dard",
-                author: "अनजान"
-            },
-            {
-                text: "जिंदगी के इस सफर में कभी हँसना, कभी रोना, पर हार न मानना, क्योंकि यही तो जिंदगी है।",
-                category: "jindagi",
-                author: "अनजान"
+                id: 3,
+                name: "विकास जोशी",
+                content: "जिंदगी के इस सफर में कभी हँसना, कभी रोना, पर हार न मानना, क्योंकि यही तो जिंदगी है।",
+                timestamp: "1 दिन पहले",
+                likes: 95,
+                comments: 8
             }
         ];
-
+        
         // DOM elements
-        const shayariContainer = document.getElementById('shayariContainer');
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const searchInput = document.getElementById('searchInput');
-        const searchBtn = document.getElementById('searchBtn');
-        const themeToggle = document.getElementById('themeToggle');
-
-        // Current filter state
-        let currentCategory = 'all';
-        let currentSearch = '';
-
-        // Initialize the page
-        function init() {
-            renderShayari();
-            setupEventListeners();
-            checkThemePreference();
-        }
-
-        // Render shayari based on current filters
-        function renderShayari() {
-            shayariContainer.innerHTML = '';
-            
-            const filteredShayari = shayariData.filter(shayari => {
-                const matchesCategory = currentCategory === 'all' || shayari.category === currentCategory;
-                const matchesSearch = shayari.text.toLowerCase().includes(currentSearch.toLowerCase()) || 
-                                    shayari.author.toLowerCase().includes(currentSearch.toLowerCase());
-                return matchesCategory && matchesSearch;
-            });
-            
-            if (filteredShayari.length === 0) {
-                shayariContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">कोई शायरी नहीं मिली</p>';
-                return;
-            }
-            
-            filteredShayari.forEach(shayari => {
-                const card = document.createElement('div');
-                card.className = 'shayari-card';
-                card.dataset.category = shayari.category;
-                
-                card.innerHTML = `
-                    <div class="shayari-text">${shayari.text}</div>
-                    <div class="shayari-meta">
-                        <span>— ${shayari.author}</span>
-                        <button class="share-btn" onclick="shareShayari('${encodeURIComponent(shayari.text)} - ${shayari.author}')">
-                            <span>शेयर</span> ↗
-                        </button>
+        const postForm = document.getElementById('postForm');
+        const shayariList = document.getElementById('shayariList');
+        
+        // Function to create a shayari card
+        function createShayariCard(shayari) {
+            const firstLetter = shayari.name.charAt(0);
+            return `
+                <div class="shayari-card">
+                    <div class="shayari-header">
+                        <div class="avatar">${firstLetter}</div>
+                        <div class="shayari-info">
+                            <h3>${shayari.name}</h3>
+                            <div class="timestamp">${shayari.timestamp}</div>
+                        </div>
                     </div>
-                `;
+                    <div class="shayari-content">
+                        ${shayari.content}
+                    </div>
+                    <div class="shayari-actions">
+                        <div class="action-btn like">
+                            <i class="far fa-thumbs-up"></i>
+                            <span>लाइक (${shayari.likes})</span>
+                        </div>
+                        <div class="action-btn comment">
+                            <i class="far fa-comment"></i>
+                            <span>कमेंट (${shayari.comments})</span>
+                        </div>
+                        <div class="action-btn share">
+                            <i class="far fa-share-square"></i>
+                            <span>शेयर</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Function to add a new shayari
+        function addNewShayari(content) {
+            const newShayari = {
+                id: Date.now(),
+                name: "आप",
+                content: content,
+                timestamp: "अभी अभी",
+                likes: 0,
+                comments: 0
+            };
+            
+            const shayariCard = createShayariCard(newShayari);
+            shayariList.insertAdjacentHTML('afterbegin', shayariCard);
+        }
+        
+        // Load initial shayaris
+        function loadInitialShayaris() {
+            initialShayaris.forEach(shayari => {
+                const shayariCard = createShayariCard(shayari);
+                shayariList.innerHTML += shayariCard;
+            });
+        }
+        
+        // Form submission handler
+        postForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const textarea = this.querySelector('textarea');
+            const content = textarea.value.trim();
+            
+            if (content) {
+                addNewShayari(content);
+                textarea.value = '';
                 
-                shayariContainer.appendChild(card);
-            });
-        }
-
-        // Set up event listeners
-        function setupEventListeners() {
-            // Tab buttons
-            tabBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    tabBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentCategory = btn.dataset.category;
-                    renderShayari();
-                });
-            });
-            
-            // Search functionality
-            searchBtn.addEventListener('click', () => {
-                currentSearch = searchInput.value.trim();
-                renderShayari();
-            });
-            
-            searchInput.addEventListener('keyup', (e) => {
-                if (e.key === 'Enter') {
-                    currentSearch = searchInput.value.trim();
-                    renderShayari();
-                }
-            });
-            
-            // Theme toggle
-            themeToggle.addEventListener('click', toggleTheme);
-        }
-
-        // Share functionality
-        window.shareShayari = function(text) {
-            const shareUrl = `https://wa.me/?text=${encodeURIComponent(text + '\n\n👉 https://vishwajit-tech.github.io/Shayariwale/')}`;
-            window.open(shareUrl, '_blank');
-        }
-
-        // Theme management
-        function checkThemePreference() {
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const savedTheme = localStorage.getItem('theme');
-            
-            if (savedTheme) {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-            } else if (prefersDark) {
-                document.documentElement.setAttribute('data-theme', 'dark');
+                // Show success message
+                alert('आपकी शायरी सफलतापूर्वक पोस्ट हो गई है!');
             }
-        }
-
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        }
-
-        // Initialize the app
-        init();
+        });
+        
+        // Add event listeners to like buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.action-btn.like')) {
+                const btn = e.target.closest('.action-btn.like');
+                const likeIcon = btn.querySelector('i');
+                
+                if (likeIcon.classList.contains('far')) {
+                    likeIcon.classList.remove('far');
+                    likeIcon.classList.add('fas');
+                    btn.style.color = '#1877f2';
+                    
+                    // Update like count
+                    const span = btn.querySelector('span');
+                    const currentLikes = parseInt(span.textContent.match(/\d+/)[0]);
+                    span.textContent = `लाइक (${currentLikes + 1})`;
+                }
+            }
+        });
+        
+        // Initialize the page
+        window.onload = loadInitialShayaris;
     </script>
 </body>
-</html>
+</html>    
