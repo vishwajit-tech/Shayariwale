@@ -710,7 +710,7 @@
                         <span>जिंदगी की शायरी</span>
                         <div class="count">5</div>
                     </div>
-                    <div class="category mohabbat" data-category="mohabbat">
+                    <div class "category mohabbat" data-category="mohabbat">
                         <i class="fas fa-star"></i>
                         <span>मोहब्बत शायरी</span>
                         <div class="count">7</div>
@@ -925,7 +925,7 @@
                     <div class="shayari-actions">
                         <div class="action-btn like">
                             <i class="far fa-thumbs-up"></i>
-                            <span>लाइन (${shayari.likes})</span>
+                            <span>लाइप (${shayari.likes})</span>
                         </div>
                         <div class="action-btn comment" data-id="${shayari.id}">
                             <i class="far fa-comment"></i>
@@ -1067,7 +1067,7 @@
                     const match = span.textContent.match(/\d+/);
                     if (match) {
                         const currentLikes = parseInt(match[0]);
-                        span.textContent = `लाइन (${currentLikes + 1})`;
+                        span.textContent = `लाइप (${currentLikes + 1})`;
                     }
                 }
             }
