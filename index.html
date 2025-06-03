@@ -38,7 +38,6 @@
             margin: 0 auto;
         }
         
-        /* Header Styles */
         header {
             background: linear-gradient(to right, var(--primary), #9b59b6);
             padding: 20px;
@@ -129,7 +128,6 @@
             right: 0;
         }
         
-        /* Layout */
         .content-wrapper {
             display: grid;
             grid-template-columns: 1fr 2.5fr;
@@ -140,9 +138,15 @@
             .content-wrapper {
                 grid-template-columns: 1fr;
             }
+            .sidebar {
+                position: static;
+                margin-bottom: 20px;
+            }
+            .main-content {
+                margin-top: 0;
+            }
         }
         
-        /* Left Sidebar */
         .sidebar {
             background-color: var(--card-bg);
             border-radius: 15px;
@@ -214,6 +218,8 @@
         .category.jindagi i { background-color: #2ecc71; }
         .category.mohabbat i { background-color: #9b59b6; }
         .category.motivational i { background-color: #f39c12; }
+        .category.jokes i { background-color: #f1c40f; }
+        .category.funny i { background-color: #1abc9c; }
         
         .category span {
             font-size: 1.2rem;
@@ -232,7 +238,6 @@
             font-size: 0.9rem;
         }
         
-        /* Main Content */
         .main-content {
             display: flex;
             flex-direction: column;
@@ -450,7 +455,6 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
         
-        /* Comments Section */
         .comments-section {
             margin-top: 20px;
             padding: 15px;
@@ -526,7 +530,6 @@
             font-size: 0.95rem;
         }
         
-        /* Footer */
         footer {
             text-align: center;
             padding: 30px;
@@ -586,7 +589,6 @@
             }
         }
         
-        /* Fixed category header */
         .category-header {
             position: sticky;
             top: 10px;
@@ -630,7 +632,6 @@
             <h2><i class="fas fa-star"></i> अपनी भावनाओं को शब्दों में ढालें <i class="fas fa-star"></i></h2>
         </div>
         
-        <!-- Fixed category header -->
         <div class="category-header" id="categoryHeader">
             <div class="category-chip active" data-category="all">सभी</div>
             <div class="category-chip" data-category="prem">प्रेम</div>
@@ -638,10 +639,11 @@
             <div class="category-chip" data-category="jindagi">जिंदगी</div>
             <div class="category-chip" data-category="mohabbat">मोहब्बत</div>
             <div class="category-chip" data-category="motivational">प्रेरणा</div>
+            <div class="category-chip" data-category="jokes">जोक्स</div>
+            <div class="category-chip" data-category="funny">मजेदार</div>
         </div>
         
         <div class="content-wrapper">
-            <!-- Left Sidebar -->
             <div class="sidebar">
                 <h3><i class="fas fa-list"></i> शायरी श्रेणियाँ</h3>
                 <div class="category-list">
@@ -670,10 +672,19 @@
                         <span>प्रेरणादायक शायरी</span>
                         <div class="count">4</div>
                     </div>
+                    <div class="category jokes" data-category="jokes">
+                        <i class="fas fa-laugh"></i>
+                        <span>जोक्स</span>
+                        <div class="count">1</div>
+                    </div>
+                    <div class="category funny" data-category="funny">
+                        <i class="fas fa-smile"></i>
+                        <span>मजेदार</span>
+                        <div class="count">1</div>
+                    </div>
                 </div>
             </div>
             
-            <!-- Main Content -->
             <div class="main-content">
                 <div class="create-post">
                     <h3 class="section-heading"><i class="fas fa-edit"></i> नई शायरी पोस्ट करें</h3>
@@ -692,6 +703,8 @@
                                 <option value="jindagi">जिंदगी की शायरी</option>
                                 <option value="mohabbat">मोहब्बत शायरी</option>
                                 <option value="motivational">प्रेरणादायक शायरी</option>
+                                <option value="jokes">जोक्स</option>
+                                <option value="funny">मजेदार</option>
                             </select>
                         </div>
                         
@@ -705,7 +718,6 @@
                 <h3 class="section-heading"><i class="fas fa-book-open"></i> ताज़ा शायरियाँ</h3>
                 
                 <div class="shayari-list" id="shayariList">
-                    <!-- Shayari posts will be added here dynamically -->
                 </div>
             </div>
         </div>
@@ -723,7 +735,6 @@
     </div>
 
     <script>
-        // Sample data for initial posts
         const initialShayaris = [
             {
                 id: 1,
@@ -754,7 +765,7 @@
             {
                 id: 3,
                 name: "विकास जोशी",
-                content: "जिंदगी के इस सफर में कभी हँसना, कभी रोना, पर हार न मानना, क्योंकि यही तो जिंदगी है।",
+                content: "जिंदगी के इस सफर में कभी हँसना Rücken रोना, पर हार न मानना, क्योंकि यही तो जिंदगी है।",
                 category: "jindagi",
                 timestamp: "1 दिन पहले",
                 likes: 95,
@@ -785,16 +796,38 @@
                     {name: "सुरेश", text: "प्रेरणादायक शायरी!"},
                     {name: "मीनाक्षी", text: "हर किसी को यह शायरी पढ़नी चाहिए"}
                 ]
+            },
+            {
+                id: 6,
+                name: "कमल वर्मा",
+                content: "पति: अगर मैं मर जाऊँ तो तुम क्या करोगी? पत्नी: मैं पागल हो जाऊँगी! पति: फिर दूसरी शादी करोगी? पत्नी: नहीं, पागल को कौन लेता है!",
+                category: "jokes",
+                timestamp: "3 घंटे पहले",
+                likes: 30,
+                comments: 3,
+                commentsList: [
+                    {name: "राधा", text: "हाहाहा, बहुत मज़ेदार!"}
+                ]
+            },
+            {
+                id: 7,
+                name: "सोहन लाल",
+                content: "टीचर: बताओ, पानी का फार्मूला क्या है? स्टूडेंट: H, I, J, K, L, M, N, O! टीचर: ये क्या है? स्टूडेंट: सर, आपने ही तो कहा था कि पानी का फार्मूला H to O है!",
+                category: "funny",
+                timestamp: "4 घंटे पहले",
+                likes: 25,
+                comments: 2,
+                commentsList: [
+                    {name: "मोहन", text: "मजेदार जवाब!"}
+                ]
             }
         ];
         
-        // DOM elements
         const postForm = document.getElementById('postForm');
         const shayariList = document.getElementById('shayariList');
         const categoryItems = document.querySelectorAll('.category');
         const categoryChips = document.querySelectorAll('.category-chip');
         
-        // Function to create a shayari card
         function createShayariCard(shayari) {
             const firstLetter = shayari.name.charAt(0);
             const categoryNames = {
@@ -802,10 +835,11 @@
                 "dard": "दर्द भरी शायरी",
                 "jindagi": "जिंदगी की शायरी",
                 "mohabbat": "मोहब्बत शायरी",
-                "motivational": "प्रेरणादायक शायरी"
+                "motivational": "प्रेरणादायक शायरी",
+                "jokes": "जोक्स",
+                "funny": "मजेदार"
             };
             
-            // Generate comments HTML
             let commentsHTML = '';
             if (shayari.commentsList.length > 0) {
                 shayari.commentsList.forEach(comment => {
@@ -842,7 +876,7 @@
                     <div class="shayari-actions">
                         <div class="action-btn like">
                             <i class="far fa-thumbs-up"></i>
-                            <span>लाइक (${shayari.likes})</span>
+                            <span>लाइन (${shayari.likes})</span>
                         </div>
                         <div class="action-btn comment" data-id="${shayari.id}">
                             <i class="far fa-comment"></i>
@@ -870,13 +904,11 @@
             `;
         }
         
-        // Function to share on WhatsApp
         window.shareOnWhatsApp = function(content) {
             const text = encodeURIComponent(content + "\n\nशायरी वाला से - https://vishwajit-tech.github.io/Shayariwale/");
             window.open(`https://wa.me/?text=${text}`, '_blank');
         }
         
-        // Function to add a new shayari
         function addNewShayari(content, category) {
             const newShayari = {
                 id: Date.now(),
@@ -892,11 +924,9 @@
             const shayariCard = createShayariCard(newShayari);
             shayariList.insertAdjacentHTML('afterbegin', shayariCard);
             
-            // Update category count
             updateCategoryCount(category, 1);
         }
         
-        // Function to update category count
         function updateCategoryCount(category, increment) {
             const categoryElement = document.querySelector(`.category[data-category="${category}"] .count`);
             if (categoryElement) {
@@ -905,7 +935,6 @@
             }
         }
         
-        // Function to toggle comments section
         function toggleComments(shayariId) {
             const commentsSection = document.getElementById(`comments-${shayariId}`);
             if (commentsSection) {
@@ -917,26 +946,22 @@
             }
         }
         
-        // Function to add a new comment
         function addComment(shayariId, commentText) {
             const comment = {
                 name: "आप",
                 text: commentText
             };
             
-            // Find the shayari in our data
             const shayari = initialShayaris.find(item => item.id === shayariId);
             if (shayari) {
                 shayari.commentsList.push(comment);
                 shayari.comments++;
                 
-                // Update the UI
                 const commentBtn = document.querySelector(`.action-btn.comment[data-id="${shayariId}"] span`);
                 if (commentBtn) {
                     commentBtn.textContent = `कमेंट (${shayari.comments})`;
                 }
                 
-                // Re-render the comments section
                 const commentsSection = document.getElementById(`comments-${shayariId}`);
                 if (commentsSection) {
                     const commentsList = commentsSection.querySelector('.comments-list');
@@ -955,7 +980,6 @@
             }
         }
         
-        // Load initial shayaris
         function loadInitialShayaris() {
             initialShayaris.forEach(shayari => {
                 const shayariCard = createShayariCard(shayari);
@@ -963,7 +987,6 @@
             });
         }
         
-        // Form submission handler
         postForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const textarea = this.querySelector('#shayariText');
@@ -975,18 +998,14 @@
                 addNewShayari(content, category);
                 textarea.value = '';
                 categorySelect.selectedIndex = 0;
-                
-                // Show success message
                 alert('आपकी शायरी सफलतापूर्वक पोस्ट हो गई है!');
             } else {
                 alert('कृपया शायरी और श्रेणी दोनों भरें');
             }
         });
         
-        // Add event listeners to like buttons
         document.addEventListener('click', function(e) {
-            // Like button
-            if (e.target.closest('.action-btn.like')) {
+            if (e Chất lượng cao (e.target.closest('.action-btn.like')) {
                 const btn = e.target.closest('.action-btn.like');
                 const likeIcon = btn.querySelector('i');
                 
@@ -995,24 +1014,21 @@
                     likeIcon.classList.add('fas');
                     btn.style.color = '#3498db';
                     
-                    // Update like count
                     const span = btn.querySelector('span');
                     const match = span.textContent.match(/\d+/);
                     if (match) {
                         const currentLikes = parseInt(match[0]);
-                        span.textContent = `लाइक (${currentLikes + 1})`;
+                        span.textContent = `लाइन (${currentLikes + 1})`;
                     }
                 }
             }
             
-            // Comment button
             if (e.target.closest('.action-btn.comment')) {
                 const btn = e.target.closest('.action-btn.comment');
                 const shayariId = btn.dataset.id;
                 toggleComments(shayariId);
             }
             
-            // Post comment button
             if (e.target.closest('.comment-btn')) {
                 const btn = e.target.closest('.comment-btn');
                 const shayariId = btn.dataset.id;
@@ -1026,7 +1042,6 @@
             }
         });
         
-        // Category filtering
         categoryItems.forEach(item => {
             item.addEventListener('click', function() {
                 const category = this.dataset.category;
@@ -1037,21 +1052,16 @@
         categoryChips.forEach(chip => {
             chip.addEventListener('click', function() {
                 const category = this.dataset.category;
-                
-                // Update active chip
                 categoryChips.forEach(c => c.classList.remove('active'));
                 this.classList.add('active');
-                
                 filterShayaris(category);
             });
         });
         
         function filterShayaris(category) {
-            // Update active category
             categoryItems.forEach(cat => cat.classList.remove('active'));
             document.querySelector(`.category[data-category="${category}"]`).classList.add('active');
             
-            // Show/hide shayaris based on category
             const shayariCards = document.querySelectorAll('.shayari-card');
             shayariCards.forEach(card => {
                 if (category === 'all' || card.dataset.category === category) {
@@ -1062,11 +1072,8 @@
             });
         }
         
-        // Initialize the page
         window.onload = function() {
             loadInitialShayaris();
-            
-            // Set first category as active
             if (categoryItems.length > 0) {
                 categoryItems[0].classList.add('active');
             }
