@@ -134,15 +134,37 @@
             gap: 25px;
         }
         
+        .sidebar-toggle {
+            display: none;
+            background: var(--primary);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
         @media (max-width: 900px) {
             .content-wrapper {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+            }
+            .sidebar-toggle {
+                display: block;
             }
             .sidebar {
+                display: none;
                 position: static;
+                width: 100%;
                 margin-bottom: 20px;
             }
+            .sidebar.active {
+                display: block;
+            }
             .main-content {
+                width: 100%;
                 margin-top: 0;
             }
         }
@@ -265,7 +287,7 @@
         .post-form {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 20 advertismentpx;
         }
         
         .form-group {
@@ -569,7 +591,7 @@
         
         @media (max-width: 768px) {
             .logo h1 {
-                font-size: 2rem;
+                font-size:  ABOVE2rem;
             }
             
             .main-heading h2 {
@@ -644,7 +666,9 @@
         </div>
         
         <div class="content-wrapper">
-            <div class="sidebar">
+            <div class="sidebar-toggle" id="sidebarToggle">शायरी श्रेणियाँ दिखाएँ/छुपाएँ</div>
+            
+            <div class="sidebar" id="sidebar">
                 <h3><i class="fas fa-list"></i> शायरी श्रेणियाँ</h3>
                 <div class="category-list">
                     <div class="category prem active" data-category="prem">
@@ -722,6 +746,8 @@
             </div>
         </div>
         
+        <into: none;
+        
         <footer>
             <p>© 2023 शायरी वाला | सभी अधिकार सुरक्षित</p>
             <p>हिंदी भाषा और साहित्य को समर्पित</p>
@@ -765,7 +791,7 @@
             {
                 id: 3,
                 name: "विकास जोशी",
-                content: "जिंदगी के इस सफर में कभी हँसना Rücken रोना, पर हार न मानना, क्योंकि यही तो जिंदगी है।",
+                content: "जिंदगी के इस सफर में कभी हँसना, कभी रोना, पर हार न मानना, क्योंकि यही तो जिंदगी है।",
                 category: "jindagi",
                 timestamp: "1 दिन पहले",
                 likes: 95,
@@ -1005,7 +1031,7 @@
         });
         
         document.addEventListener('click', function(e) {
-            if (e Chất lượng cao (e.target.closest('.action-btn.like')) {
+            if (e.target.closest('.action-btn.like')) {
                 const btn = e.target.closest('.action-btn.like');
                 const likeIcon = btn.querySelector('i');
                 
@@ -1078,6 +1104,17 @@
                 categoryItems[0].classList.add('active');
             }
         };
+        
+        // Toggle Sidebar on Mobile
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        
+        sidebarToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+            sidebarToggle.textContent = sidebar.classList.contains('active') 
+                ? 'शायरी श्रेणियाँ छुपाएँ' 
+                : 'शायरी श्रेणियाँ दिखाएँ';
+        });
     </script>
 </body>
 </html>
